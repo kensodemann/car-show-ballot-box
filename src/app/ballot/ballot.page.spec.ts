@@ -37,7 +37,15 @@ describe('BallotPage', () => {
   describe('initialization', () => {
     it('gets the current car show', () => {
       expect(carShows.getCurrent).toHaveBeenCalledTimes(1);
-      expect(component.carShow).toEqual(testCarShows[1]);
+    });
+
+    it('creates the votes array', () => {
+      const expectedVotes = testCarShows[1].classes.map(c => ({
+        carShowClassId: c.id,
+        name: c.name,
+        description: c.description
+      }));
+      expect(component.votes).toEqual(expectedVotes);
     });
   });
 
