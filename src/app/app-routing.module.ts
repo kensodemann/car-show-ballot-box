@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'ballot', loadChildren: './ballot/ballot.module#BallotPageModule' },
   {
     path: 'create-new-show',
     loadChildren:
