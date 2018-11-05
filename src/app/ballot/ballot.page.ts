@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 import { CarShow } from '../models/car-show';
 import { CarShowsService } from '../services/car-shows';
@@ -13,7 +14,10 @@ export class BallotPage implements OnInit {
   private carShow: CarShow;
   votes: Array<Vote>;
 
-  constructor(private carShows: CarShowsService) {}
+  constructor(
+    private carShows: CarShowsService,
+    private navController: NavController
+  ) {}
 
   ngOnInit() {
     this.carShows.getCurrent().subscribe(c => {
@@ -26,7 +30,9 @@ export class BallotPage implements OnInit {
     });
   }
 
-  testClick() {
-    console.log('back button clicked');
+  saveBallot() {}
+
+  close() {
+    this.navController.goBack();
   }
 }
